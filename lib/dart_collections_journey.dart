@@ -47,3 +47,23 @@ void runTask2 () {
 
    Set<String> onlyInSecond = uniqueNames2.difference(uniqueNames1);
    print('Тільки в другому списку: $onlyInSecond');
+   import 'package:word_generator/word_generator.dart';
+
+void main() {
+  final wordGenerator = WordGenerator();
+  
+  final List<String> nounsList = wordGenerator.randomNouns(50);
+  print('nounsList: $nounsList');
+
+  final Map<String, int> nounsMap = {
+    for (var word in nounsList) word: word.length
+  };
+  print('nounsMap: $nounsMap');
+
+  final Map<String, int> tempNouns = {
+    for (var entry in nounsMap.entries)
+      if (entry.value % 2 == 0) entry.key: entry.value
+  };
+  print('Слова з парною довжиною:');
+  tempNouns.keys.forEach(print);
+}
