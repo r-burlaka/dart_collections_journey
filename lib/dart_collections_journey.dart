@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:dart_collections_journey/names.dart';
 void main() {
   runTask1();
 }
@@ -31,4 +32,18 @@ void runTask1() {
     }
   }
   print('Кількість парних чисел у списку temp: ${temp.length}');
-} //
+} 
+void runTask2 () {
+  print('------------------- Task 2 -------------------');
+
+   Set<String> uniqueNames1 = Set.from(ukrainianNames1);
+   Set<String> uniqueNames2 = Set.from(ukrainianNames2);
+
+   Set<String> commonNames = uniqueNames1.intersection(uniqueNames2);
+   print('Кількість спільних імен: ${commonNames.length}');   
+
+   Set<String> onlyInFirst = uniqueNames1.difference(uniqueNames2);
+   print('Тільки в першому списку: $onlyInFirst');
+
+   Set<String> onlyInSecond = uniqueNames2.difference(uniqueNames1);
+   print('Тільки в другому списку: $onlyInSecond');
